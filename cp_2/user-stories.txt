@@ -1,0 +1,17 @@
+As a user, I can log in
+As a user, I can search for books by title or by author
+As a user, I can delete my reviews
+As a user, I can add my reviews
+As a user, I can read other users' reviews
+As a user, I can add a review\book to my "favorites"
+As a user, I can delete my account
+As an admin, I can add a category
+As an admin, I can delete a category
+As an admin, I can add a review\book
+As an admin, I can delete a review\book
+As an admin, I can see other users IDs
+As an admin, I can add a user to the blacklist
+As an admin, I can delete an accounts
+As a moderator, I can edit the review
+As a moderator, I can accept and approve reviews
+As a moderator, I can block users

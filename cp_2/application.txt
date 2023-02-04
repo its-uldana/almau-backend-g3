@@ -1,0 +1,2 @@
+I want to create a forum site where people can write\read book reviews.
+Entities: User, Admin, Category, Product
