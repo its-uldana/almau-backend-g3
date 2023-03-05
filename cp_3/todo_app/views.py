@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from todo_app.models import TodoList, Todo
-from todo_app.serializers import TodoListSerializer, TodoSerializer
+from .models import TodoList, Todo
+from .serializers import TodoListSerializer, TodoSerializer
 from django.views.decorators.csrf import csrf_exempt
 import json
-
 
 @csrf_exempt
 def todo_lists_handler(request):
@@ -41,7 +40,8 @@ def todo_list_handler(request, pk):
     result = get_todo_list(pk)
 
     if result['status'] == 404:
-        return JsonResponse({'message': 'TodoList not found'}, status=404)
+     return JsonResponse({'message': 'TodoList not found'}, status=404)
+
 
     todo_list = result['todo_list']
 
@@ -57,7 +57,7 @@ def todo_list_handler(request, pk):
         return JsonResponse(data=serializer.errors, status=400)
     if request.method == 'DELETE':
         todo_list.delete()
-        return JsonResponse({'message': 'Todolist deleted successfully!'})
+        return JsonResponse({'message': 'TodoList deleted successfully!'})
     return JsonResponse({'message': 'Request is not supported'}, status=400)
 
 
@@ -115,6 +115,7 @@ def todos_handler(request):
     return JsonResponse({'message': 'Request is not supported'}, status=400)
 
 
+
 @csrf_exempt
 def todo_handler(request, pk):
     result = get_todo(pk)
@@ -139,4 +140,3 @@ def todo_handler(request, pk):
         serializer = TodoSerializer(todo)
         return JsonResponse(serializer.data, status=200, safe=False)
     return JsonResponse({'message': 'Request is not supported'}, status=400)
-
